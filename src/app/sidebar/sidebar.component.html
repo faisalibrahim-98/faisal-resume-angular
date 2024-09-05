@@ -1,0 +1,104 @@
+<div
+  class="lg:flex flex-col bg-gray-900 fixed h-full w-[230px] hidden inset-y-0 left-0"
+>
+  <div class="flex flex-col p-6 mb-8">
+    <p class="font-bold text-4xl">Faisal Ibrahim</p>
+    <div class="bg-amber-400 h-0.5 mt-2 mb-2"></div>
+    <p class="text-white/90 font-thin">Software Engineer</p>
+  </div>
+  <ng-template [ngTemplateOutlet]="SidebarLinks"></ng-template>
+</div>
+
+<!-- Menu button for smaller screens -->
+<div class="h-14 flex flex-row items-center lg:hidden bg-gray-900">
+  <button class="text-white w-16 h-full" (click)="toggleSidebar()">
+    <i class="bi bi-list text-3xl"></i>
+  </button>
+  <p class="font-bold text-lg ml-2">Faisal Ibrahim</p>
+</div>
+
+<!-- Sidebar menu for smaller screens (hidden by default) -->
+<div
+  [ngClass]="{
+    'translate-x-0': isSidebarVisible,
+    '-translate-x-full': !isSidebarVisible,
+  }"
+  class="lg:hidden flex flex-col items-center fixed inset-y-0 left-0 max-w-xs bg-gray-900 space-y-4 z-50 transform transition-transform duration-300 ease-in-out"
+>
+  <button
+    class="bg-amber-400 rounded-lg mt-8 h-10 w-10"
+    (click)="toggleSidebar()"
+  >
+    <i class="bi bi-arrow-left text-black text-xl"></i>
+  </button>
+  <ng-template [ngTemplateOutlet]="SidebarLinks"></ng-template>
+</div>
+
+<div
+  class="flex items-center justify-center fixed bottom-5 right-5 border-black rounded-full bg-amber-400 p-1 z-10 w-12 h-12 opacity-50 cursor-pointer hover:opacity-80"
+  routerLink=""
+  fragment=""
+  (click)="scrollToTop()"
+>
+  <i class="bi bi-arrow-up text-xl text-black"></i>
+</div>
+
+<ng-template #SidebarLinks>
+  <ul class="divide-y divide-slate-500">
+    <li
+      routerLink=""
+      fragment="About"
+      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
+      (click)="closeSidebar()"
+    >
+      <i
+        class="bi bi-person-fill text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
+      ></i>
+      <p class="font-bold group-hover:text-amber-400">ABOUT</p>
+    </li>
+    <li
+      routerLink=""
+      fragment="Experience"
+      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
+      (click)="closeSidebar()"
+    >
+      <i
+        class="bi bi-briefcase-fill text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
+      ></i>
+      <p class="font-bold group-hover:text-amber-400">EXPERIENCE</p>
+    </li>
+    <li
+      routerLink=""
+      fragment="Technology"
+      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
+      (click)="closeSidebar()"
+    >
+      <i
+        class="bi bi-tools text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
+      ></i>
+      <p class="font-bold group-hover:text-amber-400">TECHNOLOGY</p>
+    </li>
+    <li
+      routerLink=""
+      fragment="Education"
+      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
+      (click)="closeSidebar()"
+    >
+      <i
+        class="bi bi-mortarboard-fill text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
+      ></i>
+      <p class="font-bold group-hover:text-amber-400">EDUCATION</p>
+    </li>
+    <li
+      routerLink=""
+      fragment="Contact"
+      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
+      (click)="closeSidebar()"
+    >
+      <i
+        class="bi bi-telephone-fill text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
+      ></i>
+      <p class="font-bold group-hover:text-amber-400">CONTACT</p>
+    </li>
+  </ul>
+</ng-template>
