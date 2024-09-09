@@ -1,19 +1,20 @@
 <div id="Technology" class="bg-white text-white lg:ml-56 p-8 sm:p-24">
-  <p class="font-bold text-gray-900 text-4xl md:text-5xl lg:text-7xl mb-12">Technology.</p>
-  <div class="flex flex-wrap justify-center p-5">
+  <p class="font-bold text-gray-900 text-4xl md:text-5xl lg:text-7xl mb-12">
+    Technology.
+  </p>
+  <div class="flex flex-wrap justify-center lg:pb-32 lg:pt-32 pb-10 pt-10">
     @for (tech of techStack; track tech) {
       <div
-        class="relative m-5 text-center cursor-pointer hover:scale-110 transform transition-transform duration-300"
+        class="flex flex-col items-center justify-center m-5 cursor-pointer hover:scale-125 transform transition-transform duration-300 w-28 h-28"
       >
         <img
-          class="w-[100px] h-[100px]"
+          class="w-3/4 h-3/4 object-contain"
           [src]="tech.logo"
           [alt]="tech.name"
         />
-        <span
-          class="block mt-3 text-[14px] font-bold text-[#333]"
-          >{{ tech.name }}</span
-        >
+        <span class="mt-2 text-sm lg:text-base font-bold text-[#333]">
+          {{ tech.name }}
+        </span>
       </div>
     }
   </div>

@@ -8,19 +8,27 @@
         class="bg-white shadow-lg rounded-lg p-6 mb-6 transform transition-transform duration-300 hover:scale-105 animate-fadeIn"
       >
         <div class="flex items-center mb-4">
-          <div class="flex items-center w-16 h-16 rounded-full mr-4">
-            <img [src]="experience.logo" alt="{{ experience.company }}" />
-          </div>
+          <img
+            class="lg:w-16 lg:h-16 w-10 h-10 lg:mr-6 mr-3 object-contain"
+            [src]="experience.logo"
+            alt="{{ experience.company }}"
+          />
           <div>
-            <h2 class="text-xl font-bold text-gray-700">
+            <h2 class="lg:text-lg text-base font-bold text-gray-800">
               {{ experience.company }}
             </h2>
-            <h3 class="text-sm text-gray-600">{{ experience.position }}</h3>
-            <p class="text-xs text-gray-500">{{ experience.duration }}</p>
-            <p class="text-xs text-gray-500">{{ experience.location }}</p>
+            <h3 class="lg:text-sm text-xs text-gray-700">
+              {{ experience.position }}
+            </h3>
+            <p class="text-xs text-gray-600">
+              {{ experience.duration }}
+            </p>
+            <p class="text-xs text-gray-600">
+              {{ experience.location }}
+            </p>
           </div>
         </div>
-        <p class="text-gray-700 text-sm ml-[5rem] hidden lg:block">
+        <p class="text-gray-800 text-sm hidden lg:block">
           {{ experience.description }}
         </p>
       </div>

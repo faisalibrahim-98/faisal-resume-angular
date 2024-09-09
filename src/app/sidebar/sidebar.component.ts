@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'sidebar-component',
@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
 export class SidebarComponent implements OnInit {
   isSidebarVisible: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
@@ -20,7 +20,13 @@ export class SidebarComponent implements OnInit {
     this.isSidebarVisible = !this.isSidebarVisible;
   }
 
-  closeSidebar(): void {
+  onClickLink(fragment: string): void {
+    this.router.navigate([], { fragment }).then(() => {
+      const element = document.getElementById(fragment);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
     this.isSidebarVisible = false;
   }
 
@@ -28,7 +34,7 @@ export class SidebarComponent implements OnInit {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 }

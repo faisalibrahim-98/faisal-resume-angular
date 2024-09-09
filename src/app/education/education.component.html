@@ -1,20 +1,29 @@
 <div id="Education" class="bg-black text-white lg:ml-56 p-8 sm:p-24">
-  <p class="font-bold text-amber-400 text-4xl md:text-5xl lg:text-7xl mb-12">Education.</p>
-  <div class="container mx-auto p-6">
+  <p class="font-bold text-amber-400 text-4xl md:text-5xl lg:text-7xl mb-12">
+    Education.
+  </p>
+  <div class="container mx-auto lg:pb-32 lg:pt-32">
     @for (education of educationList; track education) {
       <div
         class="bg-white shadow-lg rounded-lg p-6 mb-6 transform transition-transform duration-300 hover:scale-105 animate-fadeIn"
       >
         <div class="flex items-center">
           <img
-            class="w-16 h-16 mr-6"
+            class="lg:w-16 lg:h-16 w-10 h-10 lg:mr-6 mr-3"
             [src]="education.logo"
             alt="{{ education.institution }}"
           />
           <div>
-            <p class="font-bold text-md text-gray-600">{{ education.degree }}</p>
-            <p class="text-sm text-gray-500">{{ education.duration }}</p>
-            <p class="text-gray-700 text-xs">
+            <p class="font-bold lg:text-lg text-xs text-gray-800">
+              {{ education.degree }}
+            </p>
+            <p class="lg:text-sm text-xs text-gray-700">
+              {{ education.duration }}
+            </p>
+            <p class="lg:text-sm text-xs text-gray-600">
+              {{ education.location }}
+            </p>
+            <p class="text-gray-600 text-xs hidden lg:flex">
               {{ education.description }}
             </p>
           </div>

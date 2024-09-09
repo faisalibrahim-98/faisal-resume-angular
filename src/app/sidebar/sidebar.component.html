@@ -1,7 +1,8 @@
+<!-- Sidebar for lg -->
 <div
-  class="lg:flex flex-col bg-gray-900 fixed h-full w-[230px] hidden inset-y-0 left-0"
+  class="lg:flex hidden flex-col bg-gray-900 fixed h-full w-[230px]  inset-y-0 left-0"
 >
-  <div class="flex flex-col p-6 mb-8">
+  <div class="flex flex-col p-6">
     <p class="font-bold text-4xl">Faisal Ibrahim</p>
     <div class="bg-amber-400 h-0.5 mt-2 mb-2"></div>
     <p class="text-white/90 font-thin">Software Engineer</p>
@@ -9,7 +10,7 @@
   <ng-template [ngTemplateOutlet]="SidebarLinks"></ng-template>
 </div>
 
-<!-- Menu button for smaller screens -->
+<!-- Sidebar for smaller screens -->
 <div class="h-14 flex flex-row items-center lg:hidden bg-gray-900">
   <button class="text-white w-16 h-full" (click)="toggleSidebar()">
     <i class="bi bi-list text-3xl"></i>
@@ -17,7 +18,7 @@
   <p class="font-bold text-lg ml-2">Faisal Ibrahim</p>
 </div>
 
-<!-- Sidebar menu for smaller screens (hidden by default) -->
+<!-- Menu from left -->
 <div
   [ngClass]="{
     'translate-x-0': isSidebarVisible,
@@ -44,12 +45,12 @@
 </div>
 
 <ng-template #SidebarLinks>
-  <ul class="divide-y divide-slate-500">
+  <ul
+    class="divide-y divide-slate-500 lg:h-full flex flex-col justify-around h-1/2"
+  >
     <li
-      routerLink=""
-      fragment="About"
-      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
-      (click)="closeSidebar()"
+      class="group cursor-pointer lg:p-0 p-4 flex flex-col flex-grow justify-center items-center hover:bg-slate-800"
+      (click)="onClickLink('About')"
     >
       <i
         class="bi bi-person-fill text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
@@ -57,21 +58,8 @@
       <p class="font-bold group-hover:text-amber-400">ABOUT</p>
     </li>
     <li
-      routerLink=""
-      fragment="Experience"
-      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
-      (click)="closeSidebar()"
-    >
-      <i
-        class="bi bi-briefcase-fill text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
-      ></i>
-      <p class="font-bold group-hover:text-amber-400">EXPERIENCE</p>
-    </li>
-    <li
-      routerLink=""
-      fragment="Technology"
-      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
-      (click)="closeSidebar()"
+      class="group cursor-pointer lg:p-0 p-4 flex flex-col flex-grow justify-center items-center hover:bg-slate-800"
+      (click)="onClickLink('Technology')"
     >
       <i
         class="bi bi-tools text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
@@ -79,10 +67,17 @@
       <p class="font-bold group-hover:text-amber-400">TECHNOLOGY</p>
     </li>
     <li
-      routerLink=""
-      fragment="Education"
-      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
-      (click)="closeSidebar()"
+      class="group cursor-pointer lg:p-0 p-4 flex flex-col flex-grow justify-center items-center hover:bg-slate-800"
+      (click)="onClickLink('Experience')"
+    >
+      <i
+        class="bi bi-briefcase-fill text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
+      ></i>
+      <p class="font-bold group-hover:text-amber-400">EXPERIENCE</p>
+    </li>
+    <li
+      class="group cursor-pointer lg:p-0 p-4 flex flex-col flex-grow justify-center items-center hover:bg-slate-800"
+      (click)="onClickLink('Education')"
     >
       <i
         class="bi bi-mortarboard-fill text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
@@ -90,10 +85,8 @@
       <p class="font-bold group-hover:text-amber-400">EDUCATION</p>
     </li>
     <li
-      routerLink=""
-      fragment="Contact"
-      class="group cursor-pointer p-8 flex flex-col items-center hover:bg-slate-800"
-      (click)="closeSidebar()"
+      class="group cursor-pointer lg:p-0 p-4 flex flex-col flex-grow justify-center items-center hover:bg-slate-800"
+      (click)="onClickLink('Contact')"
     >
       <i
         class="bi bi-telephone-fill text-4xl group-hover:text-amber-400 mb-1 hidden lg:flex"
